@@ -360,6 +360,7 @@ func (d NetworkDriver) CreateEndpoint(request *network.CreateEndpointRequest) (*
 						Source: api.EntityRule{
 							Selector: fmt.Sprintf("has(%s)", networkName),
 						}}},
+					LabelsToApply: map[string]string{networkName: ""},
 				},
 			}
 			if _, err := d.client.Profiles().Create(ctx, profile, options.SetOptions{}); err != nil {
